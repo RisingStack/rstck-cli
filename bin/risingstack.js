@@ -25,11 +25,7 @@ program
     var semver = currentVersion.split('.');
 
     shell.exec('git checkout master');
-    if (shell.exec('git pull --rebase origin master')) {
-      // not returned with 0, we have a problem
-      console.error('Could not complete pull')
-      process.exit();
-    }
+    shell.exec('git pull --rebase origin master');
 
     if (options.major) {
       semver[0] = (parseInt(semver[0], 10) + 1).toString();
