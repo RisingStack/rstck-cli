@@ -1,1 +1,23 @@
-undefined
+{
+  "name": "cli",
+  "version": "4.0.0",
+  "description": "RisingStack CLI",
+  "main": "./bin/risingstack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:risingstack/cli.git"
+  },
+  "author": "Gergely Nemeth <mail@nemethgergely.com> (http://twitter.com/nthgergo)",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.2.0",
+    "shelljs": "^0.2.6"
+  },
+  "bin": {
+    "risingstack": "./bin/risingstack.js",
+    "rstack": "./bin/risingstack.js"
+  }
+}

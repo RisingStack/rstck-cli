@@ -24,8 +24,15 @@ program
     var currentVersion = packageJson.version;
     var semver = currentVersion.split('.');
 
-    shell.exec('git checkout master');
-    shell.exec('git pull origin master --rebase');
+    if (shell.exec('git checkout master')) {
+      console.error('Could not checkout master')
+      process.exit();
+    }
+    if (shell.exec('git pull --rebase origin master')) {
+      // not returned with 0, we have a problem
+      console.error('Could not complete pull')
+      process.exit();
+    }
 
     if (options.major) {
       semver[0] = (parseInt(semver[0], 10) + 1).toString();
@@ -39,7 +46,7 @@ program
     }
 
     packageJson.version = semver.join('.');
-    fs.writeFileSync('./package.json'), JSON.stringify(packageJson, null, 2);
+    fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));
 
     shell.exec('git add package.json');
     shell.exec('git commit -m \'Bumping version to ' + packageJson.version + '\'');
