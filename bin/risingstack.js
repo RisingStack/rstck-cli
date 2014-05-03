@@ -7,7 +7,7 @@ var program = require('commander');
 var shell = require('shelljs');
 
 
-var metaInfo = require('./package.json');
+var metaInfo = require('./../package.json');
 
 program
   .version(metaInfo.version);
