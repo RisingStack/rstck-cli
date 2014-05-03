@@ -28,7 +28,7 @@ program
       process.exit(1);
     }
 
-    var packageJson = require('./package.json');
+    var packageJson = JSON.parse(fs.readFileSync('./package.json').toString());
     var currentVersion = packageJson.version;
     var semver = currentVersion.split('.');
 
