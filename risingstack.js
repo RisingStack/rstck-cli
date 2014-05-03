@@ -26,8 +26,11 @@ program
 
     if (options.major) {
       semver[0] = (parseInt(semver[0], 10) + 1).toString();
+      semver[1] = '0';
+      semver[2] = '0';
     } else if (options.minor) {
       semver[1] = (parseInt(semver[1], 10) + 1).toString();
+      semver[2] = '0';
     } else if (options.patch) {
       semver[2] = (parseInt(semver[2], 10) + 1).toString();
     }
