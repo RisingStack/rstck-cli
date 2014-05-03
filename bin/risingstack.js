@@ -23,7 +23,7 @@ program
     }
 
     // Missing package.json
-    if (fs.existsSync('./package.json')) {
+    if (fs.existsSync('./package.json') === false) {
       console.log('Missing package.json file.');
       process.exit(1);
     }
