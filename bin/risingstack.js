@@ -20,7 +20,7 @@ program
   .option("--patch", "Increment the patch version")
   .action(function(options){
 
-    var packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json')).toString());
+    var packageJson = JSON.parse(fs.readFileSync('./package.json').toString());
     var currentVersion = packageJson.version;
     var semver = currentVersion.split('.');
 
@@ -36,7 +36,7 @@ program
     }
 
     packageJson.version = semver.join('.');
-    fs.writeFileSync(path.join(__dirname, 'package.json'), JSON.stringify(packageJson, null, 2));
+    fs.writeFileSync('./package.json'), JSON.stringify(packageJson, null, 2);
 
     shell.exec('git checkout master');
     shell.exec('git pull');
