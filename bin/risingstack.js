@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-var path = require('path');
 var fs = require('fs');
 
 var program = require('commander');
@@ -10,17 +9,26 @@ var shell = require('shelljs');
 var metaInfo = require('./../package.json');
 
 program
-  .version(metaInfo.version);
-
-program
+  .version(metaInfo.version)
   .command('release')
   .description('releases the project of the current folder')
   .option("--major", "Increment the major version")
   .option("--minor", "Increment the minor version")
   .option("--patch", "Increment the patch version")
-  .action(function(options){
+  .action(function(options) {
 
-    var packageJson = JSON.parse(fs.readFileSync('./package.json').toString());
+    // Output help information and exit immediately.
+    if (!(options.major || options.minor || options.patch)) {
+      program.help();
+    }
+
+    // Missing package.json
+    if (fs.existsSync('./package.json')) {
+      console.log('Missing package.json file.');
+      process.exit(1);
+    }
+
+    var packageJson = require('./package.json');
     var currentVersion = packageJson.version;
     var semver = currentVersion.split('.');
 
@@ -45,7 +53,10 @@ program
     shell.exec('git commit -m \'Bumping version to ' + packageJson.version + '\'');
     shell.exec('git tag ' + packageJson.version);
     shell.exec('git push origin master');
-
   });
 
 program.parse(process.argv);
+
+if (!program.args.length) {
+  program.help();
+}
