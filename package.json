@@ -17,7 +17,7 @@
     "shelljs": "^0.2.6"
   },
   "bin": {
-    "risingstack": "./bin/risingstack",
-    "rs": "./bin/risingstack"
+    "risingstack": "./bin/risingstack.js",
+    "rstack": "./bin/risingstack.js"
   }
 }
