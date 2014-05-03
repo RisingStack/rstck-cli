@@ -37,7 +37,9 @@ program
 
     shell.exec('git checkout master');
     shell.exec('git pull');
-    shell.exec('git tag ' + semver);
+    shell.exec('git add package.json');
+    shell.exec('git commit -m \'Bumping version to:' + packageJson.version + '\'');
+    shell.exec('git tag ' + packageJson.version);
     shell.exec('git push origin master');
 
   });
