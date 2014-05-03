@@ -33,7 +33,7 @@ program
     }
 
     packageJson.version = semver.join('.');
-    fs.writeFileSync(path.join(__dirname, 'package.json'), JSON.stringify(packageJson));
+    fs.writeFileSync(path.join(__dirname, 'package.json'), JSON.stringify(packageJson, null, 2));
 
     shell.exec('git checkout master');
     shell.exec('git pull');
