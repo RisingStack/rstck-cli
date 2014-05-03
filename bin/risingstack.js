@@ -24,10 +24,7 @@ program
     var currentVersion = packageJson.version;
     var semver = currentVersion.split('.');
 
-    if (shell.exec('git checkout master')) {
-      console.error('Could not checkout master')
-      process.exit();
-    }
+    shell.exec('git checkout master');
     if (shell.exec('git pull --rebase origin master')) {
       // not returned with 0, we have a problem
       console.error('Could not complete pull')
