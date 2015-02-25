@@ -1,7 +1,7 @@
 Setup
 =====
 
-`npm install git+https://bitbucket.org/risingstack/cli.git -g`
+`npm install git+https://github.com/RisingStack/cli.git -g`
 
 Usage
 =====
