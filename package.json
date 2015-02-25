@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "rstck-cli",
   "version": "4.0.3",
   "description": "RisingStack CLI",
   "main": "./bin/risingstack.js",
