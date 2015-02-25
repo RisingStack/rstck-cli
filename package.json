@@ -18,6 +18,6 @@
   },
   "bin": {
     "risingstack": "./bin/risingstack.js",
-    "rstack": "./bin/risingstack.js"
+    "rstck": "./bin/risingstack.js"
   }
 }
