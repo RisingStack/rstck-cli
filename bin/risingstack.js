@@ -53,6 +53,7 @@ program
     shell.exec('git commit -m \'Bumping version to ' + packageJson.version + '\'');
     shell.exec('git tag ' + packageJson.version);
     shell.exec('git push origin master');
+    shell.exec('git push origin master --tags');
   });
 
 program.parse(process.argv);
