@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:risingstack/cli.git"
+    "url": "git@github.com:RisingStack/rstck-cli.git"
   },
   "author": "Gergely Nemeth <mail@nemethgergely.com> (http://twitter.com/nthgergo)",
   "license": "ISC",
